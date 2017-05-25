@@ -98,8 +98,13 @@
     {
         [DFToast cancelPreviousPerformRequestsWithTarget:self selector:@selector(dismiss) object:nil];
     }
+    else
+    {
+        [_view removeFromSuperview];
+        [view addSubview:_view];
+    }
     _label.text = message;
-    [view addSubview:_view];
+    
     [UIView animateWithDuration:0.25 animations:^{
         _view.alpha = 1;
     } completion:^(BOOL finished) {
